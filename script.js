@@ -14,6 +14,11 @@ document.querySelectorAll(".dd").forEach(function (btn) {
       const typeDd = btn.getAttribute("data-dd");
       result.value = rollBestValue(typeDd, rollNumber);
     }
+
+    if (typeRoll === "sum") {
+      const typeDd = btn.getAttribute("data-dd");
+      result.value = rollSum(typeDd, rollNumber);
+    }
   });
 });
 
@@ -44,6 +49,19 @@ const rollBestValue = (typeRoll, quantity) => {
   const results = Array.from({ length: quantity }, () => roll(typeRoll));
   let bestValue = Math.max(...results);
 
-  console.log(results);
+  console.log(results, bestValue);
   return bestValue;
+};
+
+const rollSum = (typeRoll, quantity) => {
+  if (quantity <= 0) {
+    alert("A quantidade de dados deve ser maior que zero.");
+    return;
+  }
+
+  const results = Array.from({ length: quantity }, () => roll(typeRoll));
+  let sum = results.reduce((acc, number) => acc + number, 0);
+
+  console.log(results, sum);
+  return sum;
 };
