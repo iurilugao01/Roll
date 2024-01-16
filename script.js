@@ -38,7 +38,10 @@ document.querySelector("#switch").addEventListener("click", function () {
   }
 });
 
-const roll = (X) => Math.floor(Math.random() * X) + 1;
+const roll = (X) => {
+  Math.floor(Math.random() * X) + 1;
+  historic(X);
+};
 
 const rollBestValue = (typeRoll, quantity) => {
   if (quantity <= 0) {
@@ -64,4 +67,12 @@ const rollSum = (typeRoll, quantity) => {
 
   console.log(results, sum);
   return sum;
+};
+
+const historic = (...values) => {
+  const viewHistoric = document.querySelector("#click");
+  const li = document.createElement("li");
+  li.innerText = values;
+
+  viewHistoric.appendChild(li);
 };
