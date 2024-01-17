@@ -8,6 +8,8 @@ document.querySelectorAll(".dd").forEach(function (btn) {
     if (typeRoll === "default") {
       const typeDd = btn.getAttribute("data-dd");
       result.value = roll(parseFloat(typeDd));
+
+      historic(result.value);
     }
 
     if (typeRoll === "bestValue") {
@@ -38,10 +40,7 @@ document.querySelector("#switch").addEventListener("click", function () {
   }
 });
 
-const roll = (X) => {
-  Math.floor(Math.random() * X) + 1;
-  historic(X);
-};
+const roll = (X) => Math.floor(Math.random() * X) + 1;
 
 const rollBestValue = (typeRoll, quantity) => {
   if (quantity <= 0) {
@@ -52,7 +51,7 @@ const rollBestValue = (typeRoll, quantity) => {
   const results = Array.from({ length: quantity }, () => roll(typeRoll));
   let bestValue = Math.max(...results);
 
-  console.log(results, bestValue);
+  historic(results);
   return bestValue;
 };
 
@@ -65,14 +64,14 @@ const rollSum = (typeRoll, quantity) => {
   const results = Array.from({ length: quantity }, () => roll(typeRoll));
   let sum = results.reduce((acc, number) => acc + number, 0);
 
-  console.log(results, sum);
+  historic(results);
   return sum;
 };
 
 const historic = (...values) => {
-  const viewHistoric = document.querySelector("#click");
+  const viewHistoric = document.querySelector("#historic");
   const li = document.createElement("li");
-  li.innerText = values;
+  li.innerText = values.join(", ");
 
   viewHistoric.appendChild(li);
 };
