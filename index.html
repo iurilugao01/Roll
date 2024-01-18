@@ -9,38 +9,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Roll</h1>
+    <div id="header"><h1 id="tittle">Roll</h1></div>
+
     <div>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/6836/6836867.png"
-        class="dd"
-        data-dd="20"
-      />
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/7505/7505550.png"
-        class="dd"
-        data-dd="12"
-      />
-      <img
-        src="https://icons.iconarchive.com/icons/iconcubic/dnd-dice/128/d8-icon.png"
-        class="dd"
-        data-dd="8"
-      />
-      <img
-        src="https://icon-library.com/images/d6-icon/d6-icon-1.jpg"
-        class="dd"
-        data-dd="6"
-      />
-      <img
-        src="https://cdn.pixabay.com/photo/2022/07/14/18/11/d4-die-7321725_1280.png"
-        class="dd"
-        data-dd="4"
-      />
-      <img
-        src="https://user-images.githubusercontent.com/3449303/179065893-bb7e2c97-1226-4aa8-acf6-0f97d00dacd1.png"
-        class="dd"
-        data-dd="100"
-      />
+      <button class="dd" data-dd="20">d20</button>
+      <button class="dd" data-dd="12">d12</button>
+      <button class="dd" data-dd="8">d8</button>
+      <button class="dd" data-dd="6">d6</button>
+      <button class="dd" data-dd="4">d4</button>
+      <button class="dd" data-dd="100">d100</button>
     </div>
     <br />
     <label for="result">resultado - </label>
@@ -69,6 +46,7 @@
     <label for="rollNumber">insira um valor se necessario - </label>
     <input type="text" id="rollNumber" />
 
+    <h2>historico</h2>
     <ul id="historic"></ul>
   </body>
 </html>
